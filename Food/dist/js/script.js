@@ -84,11 +84,11 @@ window.addEventListener('DOMContentLoaded', () => {
                 clearInterval(timeInterval);
                 t.days = t.hours = t.minutes = t.seconds = 0;
             }
-            
+
             days.innerHTML = getZero(t.days);
             hours.innerHTML = getZero(t.hours);
             minutes.innerHTML = getZero(t.minutes);
-            seconds.innerHTML = getZero(t.seconds);            
+            seconds.innerHTML = getZero(t.seconds);
         }
     }
 
@@ -96,15 +96,17 @@ window.addEventListener('DOMContentLoaded', () => {
 
     // Modal
 
-    const modalTrigger = document.querySelector('[data-modal]'),
-            modal = document.querySelector('.modal'),
-            modalCloseBtn = document.querySelector('[data-close]');
+    const modalTrigger = document.querySelectorAll('[data-modal]'),
+        modal = document.querySelector('.modal'),
+        modalCloseBtn = document.querySelector('[data-close]');
 
-    modalTrigger.addEventListener('click', () => {
-        modal.classList.add('show');
-        modal.classList.remove('hide');
-        // modal.classList.toggle('show');
-        document.body.style.overflow = 'hidden';
+    modalTrigger.forEach(btn => {
+        btn.addEventListener('click', () => {
+            modal.classList.add('show');
+            modal.classList.remove('hide');
+            // modal.classList.toggle('show');
+            document.body.style.overflow = 'hidden';
+        });
     });
 
     function closeModal() {
@@ -127,5 +129,5 @@ window.addEventListener('DOMContentLoaded', () => {
             closeModal();
         }
     });
-    
+
 });
